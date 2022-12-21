@@ -14,12 +14,8 @@ struct Home: View {
             Text("Current number: \(vm.currentCount)")
             
             HStack {
-                Button("Minus number") {
-                    vm.currentCount -= 1
-                }
-                Button("Plus number") {
-                    vm.currentCount += 1
-                }
+                Button("Minus number", action: vm.minusNumber)
+                Button("Plus number", action: vm.plusNUmber)
             }
         }
     }
@@ -27,6 +23,14 @@ struct Home: View {
 
 class ViewModel: ObservableObject {
     @Published var currentCount = 0
+    
+    func minusNumber() {
+        currentCount -= 1
+    }
+    
+    func plusNUmber() {
+        currentCount += 1
+    }
 }
 
 struct Home_Previews: PreviewProvider {
